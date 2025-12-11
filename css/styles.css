@@ -1,57 +1,76 @@
-
-/* Doodle Stage */
+/* ----- DOODLE STAGE ----- */
 #stage {
   background: #ccc;
-  height: 300px;
-  width: 600px;
-}
-
-
-
-/* Doodle Stage */
-#stage {
-  background: #ccc;   /* or change to #90caf9 for sky blue */
   width: 800px;
   height: 400px;
 }
 
-/* ----- BACKGROUND ----- */
-#sky {
-  fill: url(#sunriseSky); /* orange → peach → sky blue */
+/* ----- SKY LAYERS (time of day) ----- */
+#skyMorning {
+  fill: url(#sunriseSky);
+  opacity: 1;
 }
 
+#skyNoon {
+  fill: #90caf9;
+  opacity: 0;
+}
+
+#skyNight {
+  fill: #020813;  /* MUCH darker night */
+  opacity: 0;
+}
+
+/* ----- SUN / GLOW / MOON ----- */
 #sun {
-  fill: #ffeb3b55; /* light yellow */
+  fill: #ffeb3b33;   /* softer, dimmer */
 }
 
 #sunGlow {
-  fill: #ffffff33; /* white glow */
+  fill: #ffffff22;   /* dimmer glow */
 }
 
+#moon {
+  fill: #fffde799;   /* softer dim yellow */
+  opacity: 0;
+}
+
+/* ----- STARS (night only) ----- */
+#star1,
+#star2,
+#star3,
+#star4,
+#star5 {
+  fill: #ffffffaa;  /* slightly dimmer */
+  opacity: 0;
+}
+
+/* ----- RIVER ----- */
 #river {
-  fill: url(#riverWater); /* blue gradient */
+  /* fill: url(#riverWater); */
+  transition: fill 0.6s ease;
 }
-
 
 /* ----- WATER WAVES ----- */
-#wave1 {
-  stroke: #bbdefb88; /* soft baby blue */
-  stroke-width: 3;
+#wave1,
+#wave2,
+#wave3 {
   fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+#wave1 {
+  stroke: #bbdefb88;
 }
 
 #wave2 {
-  stroke: #bbdefb55; /* lighter baby blue */
-  stroke-width: 3;
-  fill: none;
+  stroke: #bbdefb55;
 }
 
 #wave3 {
-  stroke: #bbdefb33; /* faint light blue */
-  stroke-width: 3;
-  fill: none;
+  stroke: #bbdefb33;
 }
-
 
 /* ----- WEEDS (detailed) ----- */
 #weedL1, #weedL2, #weedL3,
@@ -61,39 +80,36 @@
 #weedL3Leaf1, #weedL3Leaf2, #weedL3Leaf3,
 #weedR1Leaf1, #weedR1Leaf2,
 #weedR2Leaf1, #weedR2Leaf2 {
-  stroke: #33691e; /* dark natural green */
+  stroke: #33691e;
   stroke-width: 2;
   fill: none;
 }
 
-
 /* ----- ROD + RINGS ----- */
 #rod {
-  stroke: #3e2723; /* dark brown */
+  stroke: #3e2723;
   stroke-width: 8;
   fill: none;
   stroke-linecap: round;
 }
 
 #ring1, #ring2, #ring3, #ring4, #ring5 {
-  stroke: #555; /* medium gray */
+  stroke: #555555;
   stroke-width: 3;
   fill: none;
 }
 
-
-/* ----- LINE ----- */
+/* ----- FISHING LINE ----- */
 #fishingLine {
-  stroke: black; /* black */
+  stroke: black;
   stroke-width: 2;
   fill: none;
   stroke-linecap: round;
 }
 
-
 /* ----- BOBBER ----- */
 #bobber {
-  fill: #f44336; /* red */
+  fill: #f44336;
   stroke: white;
   stroke-width: 3;
 }
@@ -102,32 +118,36 @@
   fill: white;
 }
 
-
 /* ----- RIPPLE EFFECT ----- */
 #ripple1 {
-  stroke: #ffffff88; /* semi transparent white */
+  stroke: #ffffff88;
   stroke-width: 3;
   fill: none;
 }
 
 #ripple2 {
-  stroke: #ffffff55; /* more transparent */
+  stroke: #ffffff55;
   stroke-width: 2;
   fill: none;
 }
 
 #ripple3 {
-  stroke: #ffffff33; /* very faint */
+  stroke: #ffffff33;
   stroke-width: 2;
   fill: none;
 }
 
-
 /* ----- HANDLE ----- */
 #handleMain {
-  fill: #3a3a3a; /* charcoal gray */
+  fill: #3a3a3a;
 }
 
 #handleGrip {
-  fill: #2a2a2a; /* darker charcoal */
+  fill: #2a2a2a;
+}
+
+/* ----- HEADLAMP BEAM (only at night) ----- */
+#headlampBeam {
+  fill: #fffbb755;  /* brighter beam since night is darker */
+  opacity: 0;
 }
