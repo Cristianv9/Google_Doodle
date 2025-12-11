@@ -151,3 +151,62 @@
   fill: #fffbb755;  /* brighter beam since night is darker */
   opacity: 0;
 }
+
+   /* DRIFTWOOD SIGN COLORS */
+  
+
+#driftwoodGroup {
+  pointer-events: none; /* no accidental clicking */
+}
+
+/* Shadow plank (dark outline shape) */
+.shadowPlank {
+  fill: #4b301b;
+}
+
+/* Main plank body */
+.mainPlank {
+  fill: #b48652;
+  stroke: #5e3a20;
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+
+/* Wood grain lines */
+.woodGrain path {
+  stroke: #5e3a20;
+  stroke-width: 4;
+  fill: none;
+  opacity: 0.7;
+}
+
+/* Wood knots */
+.woodKnots circle {
+  stroke: #5e3a20;
+  fill: none;
+}
+
+.woodKnots circle:nth-child(1) { stroke-width: 6; }
+.woodKnots circle:nth-child(2) { stroke-width: 4; }
+.woodKnots circle:nth-child(3) { stroke-width: 3; }
+.woodKnots circle:nth-child(4) { stroke-width: 4; }
+.woodKnots circle:nth-child(5) { stroke-width: 3; }
+
+/* Highlight streaks */
+.woodHighlights path {
+  fill: none;
+  stroke: #d9b27a;
+  stroke-width: 4;
+  opacity: 0.9;
+}
+
+/* Carved text (GOOGLE) */
+.carvedText {
+  font-family: Verdana, sans-serif;
+  font-size: 80px;
+  fill: none;
+  stroke: #3b2616;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}

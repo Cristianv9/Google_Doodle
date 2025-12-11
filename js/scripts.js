@@ -1,6 +1,5 @@
 console.log('OK');
 
-
 // Bobber gentle bounce (stays in same position)
 gsap.to("#bobber, #bobberStripe", {
   yPercent: -8,       // moves visually, NOT physically
@@ -19,6 +18,7 @@ function rippleAnim(id, delay = 0) {
     },
     {
       opacity: 0,
+      repeat: -1,
       duration: 4,
       ease: "sine.out",
       delay: delay
@@ -61,9 +61,32 @@ gsap.to("#wave3", {
   ease: "none"
 });
 
+// ---- DRIFTWOOD FLOAT + DRIFT MOTION ----
+gsap.to("#driftwoodGroup", {
+  y: "+=1",            // gentle bobbing up/down
+  rotation: "-=1.5",   // slight rocking
+  duration: 2.4,
+  ease: "sine.inOut",
+  repeat: -1,
+  yoyo: true,
+  transformOrigin: "50% 50%"
+});
+
+// Continuous river flow drift 
+gsap.fromTo("#driftwoodGroup",
+  { x: -200 },   // start off-screen on the LEFT
+  {
+    x: 820,      // move off the RIGHT side
+    duration: 25,
+    ease: "none",
+    repeat: -1
+  }
+);
+
+
+
 
 // ----------------- TIME OF DAY TOGGLE -----------------
-
 
 let timeIndex = 0;  // 0 = morning, 1 = noon, 2 = night
 
@@ -88,6 +111,13 @@ function setTimeOfDay(index) {
       duration: 0.7
     });
 
+    // Driftwood – normal brightness
+    gsap.to("#driftwoodGroup", {
+      opacity: 1,
+      filter: "brightness(1)",
+      duration: 0.7
+    });
+
   } else if (index === 1) {
     // NOON
     gsap.to("#skyMorning", { opacity: 0, duration: 0.7 });
@@ -107,6 +137,13 @@ function setTimeOfDay(index) {
       duration: 0.7
     });
 
+    // Driftwood – a bit brighter at noon
+    gsap.to("#driftwoodGroup", {
+      opacity: 1,
+      filter: "brightness(1.15)",
+      duration: 0.7
+    });
+
   } else if (index === 2) {
     // NIGHT
     gsap.to("#skyMorning", { opacity: 0, duration: 0.7 });
@@ -123,6 +160,13 @@ function setTimeOfDay(index) {
     // River Night Color
     gsap.to("#river", {
       attr: { fill: "url(#riverNight)" },
+      duration: 0.7
+    });
+
+    // Driftwood – darker at night
+    gsap.to("#driftwoodGroup", {
+      opacity: 0.65,
+      filter: "brightness(0.55)",
       duration: 0.7
     });
   }
